@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NETSTAT | Technical Blog & Media Hub</title>
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
     <!-- Tailwind Custom Configuration for Glows and Colors -->
     <script>
         tailwind.config = {
@@ -26,12 +27,29 @@
         }
     </script>
     <!-- Lucide Icons for Tech Graphics -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest">
+    </script>
     <style>
         .glass-panel {
             background: rgba(15, 23, 42, 0.65);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Mobile menu slide-down animation */
+        .mobile-menu-enter {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .mobile-menu-enter.open {
+            max-height: 400px;
+            opacity: 1;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
         }
     </style>
 </head>
@@ -44,8 +62,8 @@
             <a href="index.html" class="flex items-center gap-2 text-2xl font-black tracking-wider text-white">
                 <span class="text-electricCyan">&lt;</span>NETSTAT<span class="text-electricCyan">.</span><span class="animate-pulse text-matrixGreen">_</span><span class="text-electricCyan">&gt;</span>
             </a>
-            
-            <!-- Navigation Links -->
+
+            <!-- Desktop Navigation Links -->
             <nav class="hidden md:flex items-center gap-8 font-medium text-sm tracking-wide text-slate-400">
                 <a href="index.html" class="hover:text-electricCyan transition-colors">HOME</a>
                 <a href="project_bin.html" class="hover:text-electricCyan transition-colors">PROJECT BIN</a>
@@ -53,6 +71,20 @@
                 <a href="#" class="hover:text-electricCyan transition-colors">ABOUT</a>
             </nav>
 
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuToggle" class="md:hidden text-white hover:text-electricCyan transition-colors focus:outline-none" aria-label="Toggle navigation">
+                <i data-lucide="menu" id="menuIcon" class="w-7 h-7"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu (slide-down) -->
+        <div id="mobileMenu" class="md:hidden mobile-menu-enter glass-panel border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col space-y-4 font-medium text-sm tracking-wide text-slate-400">
+                <a href="index.html" class="hover:text-electricCyan transition-colors py-1">HOME</a>
+                <a href="project_bin.html" class="hover:text-electricCyan transition-colors py-1">PROJECT BIN</a>
+                <a href="artical_page.html" class="hover:text-electricCyan transition-colors py-1">ARTICLES</a>
+                <a href="#" class="hover:text-electricCyan transition-colors py-1">ABOUT</a>
+            </div>
         </div>
     </header>
 
@@ -78,7 +110,7 @@
                 </a>
             </div>
         </div>
-        
+
         <!-- Graphical Hero Illustration Placeholder -->
         <div class="relative flex items-center justify-center lg:h-full">
             <div class="absolute w-72 h-72 bg-electricCyan/10 rounded-full blur-3xl animate-pulse"></div>
@@ -206,7 +238,7 @@
                     </div>
                     <span class="text-xs font-mono text-slate-500 tracking-wider">contact_session.sh</span>
                 </div>
-                
+
                 <!-- Form Body -->
                 <form class="p-6 space-y-4 font-mono text-sm">
                     <div>
@@ -238,5 +270,56 @@
     <script>
         lucide.createIcons();
     </script>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        (function() {
+            const toggleBtn = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+
+            if (!toggleBtn || !mobileMenu || !menuIcon) return;
+
+            // Toggle mobile menu open/close
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isOpen = mobileMenu.classList.contains('open');
+                if (isOpen) {
+                    mobileMenu.classList.remove('open');
+                    // Swap icon to menu (hamburger)
+                    menuIcon.setAttribute('data-lucide', 'menu');
+                } else {
+                    mobileMenu.classList.add('open');
+                    // Swap icon to X (close)
+                    menuIcon.setAttribute('data-lucide', 'x');
+                }
+                // Re-render the icon
+                lucide.createIcons();
+            });
+
+            // Close mobile menu when a link inside it is clicked
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('open');
+                    menuIcon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                });
+            });
+
+            // Close mobile menu when clicking outside (optional)
+            document.addEventListener('click', function(e) {
+                const isOpen = mobileMenu.classList.contains('open');
+                if (!isOpen) return;
+                const header = document.querySelector('header');
+                if (header && !header.contains(e.target)) {
+                    mobileMenu.classList.remove('open');
+                    menuIcon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                }
+            });
+        })();
+    </script>
+
 </body>
 </html>
