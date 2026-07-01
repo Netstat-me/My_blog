@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETSTAT | Technical Blog & Media Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Custom Configuration for Glows and Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spaceDark: '#0B0F19',
+                        electricCyan: '#00F2FE',
+                        matrixGreen: '#4FACFE',
+                        crispSilver: '#E2E8F0'
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 15px rgba(0, 242, 254, 0.3)',
+                        'neon-green': '0 0 15px rgba(79, 172, 254, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons for Tech Graphics -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-spaceDark text-crispSilver font-sans antialiased selection:bg-electricCyan selection:text-spaceDark">
+
+    <!-- 1. STICKY HEADER -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/5 dynamic-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 text-2xl font-black tracking-wider text-white">
+                <span class="text-electricCyan">&lt;</span>NETSTAT<span class="text-electricCyan">.</span><span class="animate-pulse text-matrixGreen">_</span><span class="text-electricCyan">&gt;</span>
+            </a>
+            
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm tracking-wide text-slate-400">
+                <a href="index.html" class="hover:text-electricCyan transition-colors">HOME</a>
+                <a href="project_bin.html" class="hover:text-electricCyan transition-colors">PROJECT BIN</a>
+                <a href="artical_page.html" class="hover:text-electricCyan transition-colors">ARTICLES</a>
+                <a href="#" class="hover:text-electricCyan transition-colors">ABOUT</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="relative min-h-[calc(100vh-80px)] flex items-center max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12 overflow-hidden">
+        <div class="space-y-6 z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-electricCyan/30 bg-electricCyan/5 text-xs font-mono text-electricCyan tracking-wider">
+                <i data-lucide="terminal" class="w-4 h-4"></i> SYSTEM STATUS: ONLINE
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                DECODING THE <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-electricCyan to-matrixGreen">DIGITAL GRID.</span>
+            </h1>
+            <p class="text-slate-400 text-lg max-w-xl leading-relaxed">
+                Welcome to NETSTAT. High-fidelity guides on networking architecture, devops automation, and infrastructure engineering made exceptionally visual.
+            </p>
+            <div class="pt-4 flex flex-wrap gap-4">
+                <a href="project_bin.html" class="px-6 py-3 bg-gradient-to-r from-electricCyan to-matrixGreen text-spaceDark font-bold rounded-lg shadow-neon-cyan hover:opacity-90 transition-all flex items-center gap-2">
+                    <i data-lucide="youtube" class="w-5 h-5"></i> Explore Projects
+                </a>
+                <a href="artical_page.html" class="px-6 py-3 border border-white/10 hover:border-electricCyan/50 glass-panel rounded-lg font-bold transition-all flex items-center gap-2">
+                    Read Articles <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Graphical Hero Illustration Placeholder -->
+        <div class="relative flex items-center justify-center lg:h-full">
+            <div class="absolute w-72 h-72 bg-electricCyan/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="glass-panel w-full aspect-square max-w-[450px] rounded-2xl border border-white/10 p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden group hover:border-electricCyan/30 transition-all">
+                <div class="absolute inset-0 bg-gradient-to-br from-electricCyan/5 to-transparent pointer-events-none"></div>
+                <div class="flex justify-between items-start">
+                    <div class="p-3 bg-white/5 rounded-xl border border-white/10 text-electricCyan">
+                        <i data-lucide="cpu" class="w-8 h-8 animate-spin" style="animation-duration: 10s;"></i>
+                    </div>
+                    <div class="text-right text-xs font-mono text-slate-500">Node_ID: #4049X</div>
+                </div>
+                <!-- Mini Tech Graph Display -->
+                <div class="space-y-4">
+                    <div class="text-xs font-mono text-matrixGreen flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-matrixGreen animate-ping"></span> Live Node Telemetry
+                    </div>
+                    <div class="h-24 flex items-end gap-2 px-2 border-b border-white/10 pb-1">
+                        <div class="w-full bg-electricCyan/20 h-12 rounded-t sm:h-16 animate-bounce" style="animation-delay: 0.1s"></div>
+                        <div class="w-full bg-matrixGreen/40 h-20 rounded-t sm:h-24 animate-bounce" style="animation-delay: 0.3s"></div>
+                        <div class="w-full bg-electricCyan/50 h-16 rounded-t sm:h-12 animate-bounce" style="animation-delay: 0.5s"></div>
+                        <div class="w-full bg-matrixGreen/20 h-8 rounded-t sm:h-14 animate-bounce" style="animation-delay: 0.2s"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ARTICLES LOG SECTION -->
+    <section id="articles" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="mb-12">
+            <div class="text-xs font-mono text-matrixGreen tracking-widest uppercase mb-1">// LOG ENTRIES</div>
+            <h2 class="text-3xl font-black text-white flex items-center gap-3">
+                <i data-lucide="terminal" class="text-matrixGreen"></i> ARTICLES & RESEARCH
+            </h2>
+        </div>
+
+        <!-- 3-Column Responsive Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Article Card 1 -->
+            <article class="glass-panel rounded-xl border border-white/5 overflow-hidden flex flex-col justify-between group hover:border-matrixGreen/30 hover:shadow-neon-green transition-all duration-300">
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                        <span class="text-matrixGreen">[ NETWORKING ]</span>
+                        <span class="text-slate-500">3 MIN READ</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-matrixGreen transition-colors">
+                        Understanding SSH Cryptographic Keys Like a Professional Engineer
+                    </h3>
+                    <p class="text-sm text-slate-400 line-clamp-3">
+                        A deep technological dive into public-key cryptography mechanics, exploring modern Ed25519 signature standards vs RSA algorithms.
+                    </p>
+                </div>
+                <div class="p-6 border-t border-white/5 bg-white/[0.01] flex justify-between items-center">
+                    <span class="text-xs font-mono text-slate-500">JUN 10, 2026</span>
+                    <span class="text-xs font-bold text-white group-hover:translate-x-1 transition-transform flex items-center gap-1">READ LOG <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                </div>
+            </article>
+
+            <!-- Article Card 2 -->
+            <article class="glass-panel rounded-xl border border-white/5 overflow-hidden flex flex-col justify-between group hover:border-matrixGreen/30 hover:shadow-neon-green transition-all duration-300">
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                        <span class="text-matrixGreen">[ INFRASTRUCTURE ]</span>
+                        <span class="text-slate-500">7 MIN READ</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-matrixGreen transition-colors">
+                        Container Optimization Mechanics: Stripping Docker Images Thin
+                    </h3>
+                    <p class="text-sm text-slate-400 line-clamp-3">
+                        How multi-stage container builds can shrink your production infrastructure foot print up to 90% while shutting down attack vectors.
+                    </p>
+                </div>
+                <div class="p-6 border-t border-white/5 bg-white/[0.01] flex justify-between items-center">
+                    <span class="text-xs font-mono text-slate-500">MAY 28, 2026</span>
+                    <span class="text-xs font-bold text-white group-hover:translate-x-1 transition-transform flex items-center gap-1">READ LOG <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                </div>
+            </article>
+
+            <!-- Article Card 3 -->
+            <article class="glass-panel rounded-xl border border-white/5 overflow-hidden flex flex-col justify-between group hover:border-matrixGreen/30 hover:shadow-neon-green transition-all duration-300">
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                        <span class="text-matrixGreen">[ COMPUTING ]</span>
+                        <span class="text-slate-500">5 MIN READ</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-matrixGreen transition-colors">
+                        The Architectural Transition of Enterprise ARM Architectures
+                    </h3>
+                    <p class="text-sm text-slate-400 line-clamp-3">
+                        Analyzing server density data charts comparing modern custom silicon chips to historical x86 cluster power efficiency standards.
+                    </p>
+                </div>
+                <div class="p-6 border-t border-white/5 bg-white/[0.01] flex justify-between items-center">
+                    <span class="text-xs font-mono text-slate-500">MAY 15, 2026</span>
+                    <span class="text-xs font-bold text-white group-hover:translate-x-1 transition-transform flex items-center gap-1">READ LOG <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 5. TERMINAL CONTACT SECTION -->
+    <section id="contact" class="bg-slate-950/40 border-t border-white/5 py-24">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Details / About Column -->
+            <div class="space-y-6">
+                <div class="text-xs font-mono text-electricCyan tracking-widest uppercase">// CONNECTIONS</div>
+                <h2 class="text-3xl font-black text-white">ESTABLISH LINK</h2>
+                <p class="text-slate-400 max-w-md leading-relaxed">
+                    Have a systems problem to solve, a sponsored platform review request, or just want to chat infrastructure optimization parameters? Drop a packet inside the system terminal interface.
+                </p>
+                <div class="space-y-3 font-mono text-sm text-slate-400">
+                    <div class="flex items-center gap-3"><i data-lucide="mail" class="text-electricCyan w-4 h-4"></i> hirunfernando313@gmail.com</div>
+                    <div class="flex items-center gap-3"><i data-lucide="map-pin" class="text-matrixGreen w-4 h-4"></i> 36/3A Baseline Road Seeduwa</div>
+                </div>
+            </div>
+
+            <!-- Terminal Styled Input Console Form -->
+            <div class="glass-panel rounded-xl border border-white/10 overflow-hidden shadow-2xl">
+                <!-- Terminal Title Bar Header -->
+                <div class="bg-slate-900 px-4 py-3 border-b border-white/5 flex items-center justify-between">
+                    <div class="flex gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500/70 block"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500/70 block"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500/70 block"></span>
+                    </div>
+                    <span class="text-xs font-mono text-slate-500 tracking-wider">contact_session.sh</span>
+                </div>
+                
+                <!-- Form Body -->
+                <form class="p-6 space-y-4 font-mono text-sm">
+                    <div>
+                        <label class="block text-xs text-electricCyan mb-1">User_Name :~ $</label>
+                        <input type="text" placeholder="Your Identity" class="w-full bg-spaceDark/50 border border-white/10 rounded px-3 py-2 text-white focus:outline-none focus:border-electricCyan focus:ring-1 focus:ring-electricCyan/30 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-electricCyan mb-1">Email_Address :~ $</label>
+                        <input type="email" placeholder="you@domain.com" class="w-full bg-spaceDark/50 border border-white/10 rounded px-3 py-2 text-white focus:outline-none focus:border-electricCyan focus:ring-1 focus:ring-electricCyan/30 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs text-electricCyan mb-1">Your_Message :~ $</label>
+                        <textarea rows="4" placeholder="Type transmission parameters details..." class="w-full bg-spaceDark/50 border border-white/10 rounded px-3 py-2 text-white focus:outline-none focus:border-electricCyan focus:ring-1 focus:ring-electricCyan/30 transition-all"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-electricCyan to-matrixGreen text-spaceDark font-bold py-3 rounded hover:opacity-90 transition-all uppercase tracking-wider text-xs">
+                        [ TRANSMIT MESSAGE ]
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-8 text-center text-xs font-mono text-slate-600">
+        &copy; 2026 NETSTAT. ALL SYSTEMS OPERATIONAL.
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

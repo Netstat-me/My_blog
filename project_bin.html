@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETSTAT Project Database</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spaceDark: '#0B0F19',
+                        electricCyan: '#00F2FE',
+                        matrixGreen: '#4FACFE',
+                        crispSilver: '#E2E8F0'
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 15px rgba(0, 242, 254, 0.3)',
+                        'neon-green': '0 0 15px rgba(79, 172, 254, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-spaceDark text-crispSilver font-sans antialiased selection:bg-electricCyan selection:text-spaceDark">
+
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-2xl font-black tracking-wider text-white">
+                <span class="text-electricCyan">&lt;</span>NETSTAT<span class="text-electricCyan">.</span><span class="animate-pulse text-matrixGreen">_</span><span class="text-electricCyan">&gt;</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm tracking-wide text-slate-400">
+                <a href="index.html" class="hover:text-electricCyan transition-colors">HOME</a>
+                <a href="project_bin.html" class="text-electricCyan font-bold tracking-widest">PROJECT BIN</a>
+                <a href="artical_page.html" class="hover:text-electricCyan transition-colors">ARTICLES</a>
+                <a href="#" class="hover:text-electricCyan transition-colors">ABOUT</a>
+            </nav>
+
+            <a href="index.html" class="hidden md:inline-flex items-center gap-2 text-xs font-mono text-matrixGreen hover:text-electricCyan transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> BACK TO TERMINAL
+            </a>
+        </div>
+    </header>
+
+    <section class="relative border-b border-white/5 bg-slate-950/20 py-16 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-electricCyan/5 to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-matrixGreen/30 bg-matrixGreen/5 text-xs font-mono text-matrixGreen tracking-wider mb-4">
+                <i data-lucide="database" class="w-4 h-4"></i> INDEXED_MEDIA_CORES: ONLINE
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase">
+                Project <span class="text-transparent bg-clip-text bg-gradient-to-r from-electricCyan to-matrixGreen">Transmissions</span>
+            </h1>
+            <p class="text-slate-400 text-base max-w-xl mt-2 leading-relaxed">
+                Browse through high-fidelity diagnostic projects covering multi-region deployments, network packet analytics, and systems optimizations.
+            </p>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-24">
+        <div class="flex flex-col items-center justify-center gap-8 py-16">
+
+            <!-- Buffering Animation -->
+            <div class="relative flex items-center justify-center w-28 h-28">
+                <!-- Outer spinning ring -->
+                <svg class="absolute inset-0 w-full h-full animate-spin" style="animation-duration: 2s;" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="56" cy="56" r="50" stroke="rgba(0,242,254,0.12)" stroke-width="6"/>
+                    <path d="M56 6 A50 50 0 0 1 106 56" stroke="url(#grad1)" stroke-width="6" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="grad1" x1="56" y1="6" x2="106" y2="56" gradientUnits="userSpaceOnUse">
+                            <stop offset="0%" stop-color="#00F2FE"/>
+                            <stop offset="100%" stop-color="#4FACFE"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <!-- Inner counter-spinning ring -->
+                <svg class="absolute inset-0 w-20 h-20 m-auto animate-spin" style="animation-duration: 1.4s; animation-direction: reverse;" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="34" stroke="rgba(79,172,254,0.1)" stroke-width="5"/>
+                    <path d="M40 6 A34 34 0 0 1 74 40" stroke="#4FACFE" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+                </svg>
+                <!-- Center icon -->
+                <div class="relative z-10 p-3 rounded-full bg-spaceDark border border-electricCyan/20">
+                    <i data-lucide="folder-off" class="w-7 h-7 text-electricCyan"></i>
+                </div>
+            </div>
+
+            <!-- Blinking dots row -->
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-electricCyan animate-bounce" style="animation-delay: 0s;"></span>
+                <span class="w-2 h-2 rounded-full bg-electricCyan animate-bounce" style="animation-delay: 0.2s;"></span>
+                <span class="w-2 h-2 rounded-full bg-electricCyan animate-bounce" style="animation-delay: 0.4s;"></span>
+            </div>
+
+            <!-- Status text -->
+            <div class="text-center space-y-2">
+                <div class="text-xs font-mono text-electricCyan tracking-widest uppercase">// STREAM_STATUS: PENDING</div>
+                <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">Feature not available yet</h2>
+                <p class="text-sm text-slate-500 font-mono max-w-sm">Project bin is currently offline. Check back soon for incoming signal.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 pb-24 pt-12">
+        <div class="glass-panel rounded-xl border border-white/10 p-8 flex flex-col md:flex-row justify-between items-center gap-6 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-matrixGreen/5 to-transparent pointer-events-none"></div>
+            <div class="space-y-2 text-center md:text-left z-10">
+                <h3 class="text-xl font-bold text-white">NEVER MISS A TRANSMISSION</h3>
+                <p class="text-sm text-slate-400">Get notifications the precise millisecond new architecture videos drop.</p>
+            </div>
+            <div class="w-full md:w-auto flex gap-2 font-mono text-xs z-10">
+                <input type="email" placeholder="subscriber@domain.com" class="bg-spaceDark border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-electricCyan transition-all w-full sm:w-64">
+                <button class="px-6 py-3 bg-gradient-to-r from-electricCyan to-matrixGreen text-spaceDark font-bold rounded shadow-neon-cyan whitespace-nowrap hover:opacity-90 transition-all">
+                    SUBSCRIBE
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-white/5 py-8 text-center text-xs font-mono text-slate-600">
+        &copy; 2026 NETSTAT. ALL SYSTEMS OPERATIONAL.
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

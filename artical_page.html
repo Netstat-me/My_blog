@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETSTAT | Core Research & Log Entries</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <!-- Tailwind Custom Configuration for Glows and Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spaceDark: '#0B0F19',
+                        electricCyan: '#00F2FE',
+                        matrixGreen: '#4FACFE',
+                        crispSilver: '#E2E8F0'
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 15px rgba(0, 242, 254, 0.3)',
+                        'neon-green': '0 0 15px rgba(79, 172, 254, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons for Tech Graphics -->
+    <script src="https://unpkg.com/lucide@latest">
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-spaceDark text-crispSilver font-sans antialiased selection:bg-electricCyan selection:text-spaceDark">
+
+    <!-- 1. STICKY HEADER -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center gap-2 text-2xl font-black tracking-wider text-white">
+                <span class="text-electricCyan">&lt;</span>NETSTAT<span class="text-electricCyan">.</span><span class="animate-pulse text-matrixGreen">_</span><span class="text-electricCyan">&gt;</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm tracking-wide text-slate-400">
+                <a href="index.html" class="hover:text-electricCyan transition-colors">HOME</a>
+                <a href="project_bin.html" class="hover:text-electricCyan transition-colors">PROJECT BIN</a>
+                <a href="artical_page.html" class="text-matrixGreen font-bold tracking-widest">ARTICLES</a>
+                <a href="#" class="hover:text-electricCyan transition-colors">ABOUT</a>
+            </nav>
+
+            <!-- Back Link -->
+            <a href="index.html" class="hidden md:inline-flex items-center gap-2 text-xs font-mono text-electricCyan hover:text-matrixGreen transition-colors">
+                <i data-lucide="terminal" class="w-4 h-4"></i> DISCONNECT_SESSION
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. ARCHIVE HERO HEADER -->
+    <section class="relative border-b border-white/5 bg-slate-950/20 py-16 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-matrixGreen/5 to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-electricCyan/30 bg-electricCyan/5 text-xs font-mono text-electricCyan tracking-wider mb-4">
+                <i data-lucide="folder-git" class="w-4 h-4"></i> CORE_LOGS: ALL_SYSTEMS_INDEXED
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase">
+                Articles & <span class="text-transparent bg-clip-text bg-gradient-to-r from-matrixGreen to-electricCyan">Research Logs</span>
+            </h1>
+            <p class="text-slate-400 text-base max-w-xl mt-2 leading-relaxed">
+                Select an entry below to initialize transmission and load the data array straight into your terminal panel interface.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. ARTICLE ARCHIVE GRID -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex items-center gap-2 font-mono text-xs text-slate-500 uppercase tracking-widest mb-6">// Database Catalog (Click an entry to load)</div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Article Card 1 – OSI Model -->
+            <article onclick="loadArticle('osi-model')" class="glass-panel rounded-xl border border-white/5 overflow-hidden flex flex-col justify-between group hover:border-matrixGreen/30 hover:shadow-neon-green transition-all duration-300 cursor-pointer">
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                        <span class="text-matrixGreen">[ NETWORKING ]</span>
+                        <span class="text-slate-500">4 MIN READ</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-matrixGreen transition-colors">
+                        OSI Model In Network Systems
+                    </h3>
+                    <p class="text-sm text-slate-400 line-clamp-3">
+                        A structured exploration of the seven-layer OSI reference model — from physical cabling up to application-layer protocols — and why it still matters in modern network engineering.
+                    </p>
+                </div>
+                <div class="p-6 border-t border-white/5 bg-white/[0.01] flex justify-between items-center">
+                    <span class="text-xs font-mono text-slate-500">JUN 10, 2026</span>
+                    <span class="text-xs font-bold text-white group-hover:text-matrixGreen transition-colors flex items-center gap-1">INITIALIZE READ <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                </div>
+            </article>
+
+            <!-- Article Card 2 -->
+            <article onclick="loadArticle('docker-images')" class="glass-panel rounded-xl border border-white/5 overflow-hidden flex flex-col justify-between group hover:border-matrixGreen/30 hover:shadow-neon-green transition-all duration-300 cursor-pointer">
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                        <span class="text-matrixGreen">[ INFRASTRUCTURE ]</span>
+                        <span class="text-slate-500">7 MIN READ</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-matrixGreen transition-colors">
+                        Container Optimization Mechanics: Stripping Docker Images Thin
+                    </h3>
+                    <p class="text-sm text-slate-400 line-clamp-3">
+                        How multi-stage container builds can shrink your production infrastructure foot print up to 90% while shutting down attack vectors.
+                    </p>
+                </div>
+                <div class="p-6 border-t border-white/5 bg-white/[0.01] flex justify-between items-center">
+                    <span class="text-xs font-mono text-slate-500">MAY 28, 2026</span>
+                    <span class="text-xs font-bold text-white group-hover:text-matrixGreen transition-colors flex items-center gap-1">INITIALIZE READ <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                </div>
+            </article>
+
+            <!-- Article Card 3 -->
+            <article onclick="loadArticle('arm-servers')" class="glass-panel rounded-xl border border-white/5 overflow-hidden flex flex-col justify-between group hover:border-matrixGreen/30 hover:shadow-neon-green transition-all duration-300 cursor-pointer">
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between items-center text-xs font-mono">
+                        <span class="text-matrixGreen">[ COMPUTING ]</span>
+                        <span class="text-slate-500">5 MIN READ</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white group-hover:text-matrixGreen transition-colors">
+                        The Architectural Transition of Enterprise ARM Architectures
+                    </h3>
+                    <p class="text-sm text-slate-400 line-clamp-3">
+                        Analyzing server density data charts comparing modern custom silicon chips to historical x86 cluster power efficiency standards.
+                    </p>
+                </div>
+                <div class="p-6 border-t border-white/5 bg-white/[0.01] flex justify-between items-center">
+                    <span class="text-xs font-mono text-slate-500">MAY 15, 2026</span>
+                    <span class="text-xs font-bold text-white group-hover:text-matrixGreen transition-colors flex items-center gap-1">INITIALIZE READ <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 4. ACTIVE DYNAMIC READER INTERFACE -->
+    <section id="reader-view" class="max-w-4xl mx-auto px-6 py-12 border-t border-white/5">
+        <div class="text-xs font-mono text-electricCyan mb-2 tracking-widest">// ACTIVE TRANSMISSION READOUT</div>
+
+        <div class="glass-panel rounded-2xl border border-white/10 p-6 md:p-10 shadow-2xl space-y-8">
+            <!-- Article Header Meta Container -->
+            <div class="space-y-3">
+                <div class="flex flex-wrap items-center gap-3 text-xs font-mono text-slate-500">
+                    <span id="article-tag" class="px-2 py-0.5 rounded border border-matrixGreen/30 bg-matrixGreen/10 text-matrixGreen">NETWORKING</span>
+                    <span>•</span>
+                    <span id="article-id">LOG_ID: #2026-OSI-07</span>
+                    <span>•</span>
+                    <span id="article-date">UPDATED: JUN 10, 2026</span>
+                </div>
+                <h2 id="article-title" class="text-2xl md:text-4xl font-black text-white leading-tight">
+                    OSI Model In Network Systems
+                </h2>
+                <div class="h-0.5 w-full bg-gradient-to-r from-electricCyan via-matrixGreen to-transparent opacity-30 pt-1"></div>
+            </div>
+
+            <!-- Content Injector Area Layout -->
+            <div id="article-content" class="text-slate-300 text-base space-y-6 leading-relaxed font-sans">
+                <!-- Loaded dynamically by JavaScript default -->
+            </div>
+
+            <!-- Author Signature Box inside Article -->
+            <div class="mt-12 p-6 border border-white/5 rounded-xl bg-slate-950/30 flex items-center gap-4">
+                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-electricCyan to-matrixGreen flex items-center justify-center text-spaceDark font-black text-xl shadow-neon-cyan">
+                    NS
+                </div>
+                <div>
+                    <div class="text-sm font-bold text-white">NETSTAT Core Operator</div>
+                    <div class="text-xs font-mono text-slate-500">Systems Infrastructure Analyst & Technical Content Creator</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/5 py-8 text-center text-xs font-mono text-slate-600">
+        &copy; 2026 NETSTAT. ALL SYSTEMS OPERATIONAL.
+    </footer>
+
+    <!-- ARTICLE DATABASE OBJECT AND CORE INJECTION SCRIPT -->
+    <script>
+        // Article Database Array Store
+        const articleDatabase = {
+
+            // ─── NEW: OSI MODEL ARTICLE (200–300 words) ─────────────────────────
+            'osi-model': {
+                tag: 'NETWORKING',
+                id: 'LOG_ID: #2026-OSI-07',
+                date: 'UPDATED: JUN 10, 2026',
+                title: 'OSI Model In Network Systems',
+                body: `
+                        <p class="text-lg text-slate-200 font-medium">
+                            The Open Systems Interconnection (OSI) model remains the foundational reference framework for understanding how data travels across a network. Although modern internet protocols lean heavily on the TCP/IP stack, the OSI model's seven-layer abstraction still provides network engineers with a universal language for troubleshooting, design, and interoperability.
+                        </p>
+
+                        <h3 class="text-xl font-bold text-white font-mono flex items-center gap-2 pt-4 text-electricCyan">
+                            <span class="text-slate-600">#</span> 01. The Seven Layers — A Bottom-Up Overview
+                        </h3>
+
+                        <p>
+                            The model begins at the <strong class="text-white font-semibold">Physical Layer</strong> (Layer 1), which governs raw bit transmission over cables, radio frequencies, or fiber optics. Above it, the <strong class="text-white font-semibold">Data Link Layer</strong> (Layer 2) frames these bits into structured packets, adding MAC addresses for local network delivery. The <strong class="text-white font-semibold">Network Layer</strong> (Layer 3) then handles logical addressing and routing — this is where IP lives. The <strong class="text-white font-semibold">Transport Layer</strong> (Layer 4) ensures end-to-end communication reliability via protocols like TCP or UDP, managing segmentation, flow control, and error recovery.
+                        </p>
+
+                        <p>
+                            Moving upward, the <strong class="text-white font-semibold">Session Layer</strong> (Layer 5) establishes, maintains, and terminates communication sessions between applications. The <strong class="text-white font-semibold">Presentation Layer</strong> (Layer 6) translates data formats, handling encryption, compression, and character encoding so that the application layer receives clean, readable data. Finally, the <strong class="text-white font-semibold">Application Layer</strong> (Layer 7) interfaces directly with end-user software — HTTP, FTP, SMTP, and DNS all operate here.
+                        </p>
+
+                        <h3 class="text-xl font-bold text-white font-mono flex items-center gap-2 pt-4 text-electricCyan">
+                            <span class="text-slate-600">#</span> 02. Why the OSI Model Still Matters
+                        </h3>
+
+                        <p>
+                            While the TCP/IP model consolidates several OSI layers, the seven-layer reference remains invaluable for diagnosing network faults. When a connection fails, engineers methodically walk up the stack — checking cabling (Layer 1), switch ports (Layer 2), routing tables (Layer 3), and firewall rules (Layer 4) before ever touching application code. This structured discipline reduces debugging time and fosters clearer communication across cross-functional teams.
+                        </p>
+
+                        <p>
+                            Understanding OSI also clarifies the boundaries between hardware and software responsibilities. Network interface cards handle Layers 1–2, operating systems manage Layers 3–4, and applications own Layers 5–7. By keeping these domains distinct, the model enables modular innovation — new routing protocols can be introduced at Layer 3 without rewriting application-layer logic.
+                        </p>
+
+                        <div class="bg-slate-950/80 rounded-xl border border-white/5 overflow-hidden font-mono text-xs my-4">
+                            <div class="bg-slate-900 px-4 py-2 border-b border-white/5 flex items-center justify-between text-slate-500">
+                                <span>terminal — osi_debug.sh</span>
+                                <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <pre class="p-4 text-matrixGreen"><code>$ ping -c 4 8.8.8.8          # Layer 3 (Network) reachability check\n$ traceroute 8.8.8.8        # Layer 3 path discovery\n$ curl -v https://netstat   # Layer 7 (Application) transaction</code></pre>
+                        </div>
+
+                        <p>
+                            In modern cloud-native environments, the OSI model also informs service-mesh architectures and observability pipelines. By mapping each layer's metrics — latency at Layer 2, routing hops at Layer 3, connection states at Layer 4 — operations teams can build precise dashboards that isolate bottlenecks with surgical accuracy.
+                        </p>
+                    `
+            },
+
+            // ─── DOCKER ARTICLE ──────────────────────────────────────────────────
+            'docker-images': {
+                tag: 'INFRASTRUCTURE',
+                id: 'LOG_ID: #2026-DKR-44',
+                date: 'UPDATED: MAY 28, 2026',
+                title: 'Container Optimization Mechanics: Stripping Docker Images Thin',
+                body: `
+                        <p class="text-lg text-slate-200 font-medium">Bloated runtime images increase latency costs and expand host machine surface areas vulnerability metrics. Stripping standard image bases creates secure system postures.</p>
+                        <h3 class="text-xl font-bold text-white font-mono flex items-center gap-2 pt-4 text-electricCyan"><span class="text-slate-600">#</span> 01. The Art of Multi-Stage Builds</h3>
+                        <p>By dividing your configuration Dockerfile arrays into development staging targets and production extraction states, runtime dependency layers stay discarded inside previous build steps entirely.</p>
+                        <div class="bg-slate-950/80 rounded-xl border border-white/5 overflow-hidden font-mono text-xs my-4">
+                            <div class="bg-slate-900 px-4 py-2 border-b border-white/5 flex items-center justify-between text-slate-500"><span>Dockerfile</span><i data-lucide="terminal" class="w-3.5 h-3.5"></i></div>
+                            <pre class="p-4 text-matrixGreen"><code>FROM golang:1.22 AS builder\nWORKDIR /app\nCOPY . .\nRUN go build -o engine\n\nFROM alpine:3.19\nCOPY --from=builder /app/engine /engine\nCMD ["/engine"]</code></pre>
+                        </div>
+                        <h3 class="text-xl font-bold text-white font-mono flex items-center gap-2 pt-4 text-electricCyan"><span class="text-slate-600">#</span> 02. Choosing Distroless over Alpine</h3>
+                        <p>While Alpine distributions are tiny (~5MB), they still maintain functional shells like ash/sh. If shell command vectors get execution pathways hijacked, malicious strings running code execution exploits can compromise target zones. Upgrading to distroless bases eliminates total shell layers completely.</p>
+                    `
+            },
+
+            // ─── ARM ARTICLE ────────────────────────────────────────────────────
+            'arm-servers': {
+                tag: 'COMPUTING',
+                id: 'LOG_ID: #2026-ARM-12',
+                date: 'UPDATED: MAY 15, 2026',
+                title: 'The Architectural Transition of Enterprise ARM Architectures',
+                body: `
+                        <p class="text-lg text-slate-200 font-medium">Modern corporate server farms are rapidly processing migrations off historical x86 architectures in favor of highly dense custom modern ARM system micro-chips.</p>
+                        <h3 class="text-xl font-bold text-white font-mono flex items-center gap-2 pt-4 text-electricCyan"><span class="text-slate-600">#</span> 01. Reduced Instruction Sets Break Through Bottlenecks</h3>
+                        <p>ARM profiles employ Reduced Instruction Set Computer layouts (RISC). Executing code via simplified fixed-width instruction segments drastically drops cooling expenditure calculations and internal thermal execution resistance levels.</p>
+                        <h3 class="text-xl font-bold text-white font-mono flex items-center gap-2 pt-4 text-electricCyan"><span class="text-slate-600">#</span> 02. Performance per Watt Metrics</h3>
+                        <p>Testing environments show custom cloud-native infrastructure processors deploying threads at roughly three times the computational density capacity of previous generations. This means you run larger node grids without exceeding energy allocation limits.</p>
+                    `
+            }
+        };
+
+        // Core Reading Mode Engine function
+        function loadArticle(key) {
+            const data = articleDatabase[key];
+            if (!data) return;
+
+            // Update Text Node content
+            document.getElementById('article-tag').innerText = data.tag;
+            document.getElementById('article-id').innerText = data.id;
+            document.getElementById('article-date').innerText = data.date;
+            document.getElementById('article-title').innerText = data.title;
+            document.getElementById('article-content').innerHTML = data.body;
+
+            // Re-render structural icons if generated inside dynamic html
+            lucide.createIcons();
+
+            // Smooth scroll system down into reading module view
+            document.getElementById('reader-view').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize with default OSI article
+        loadArticle('osi-model');
+        lucide.createIcons();
+    </script>
+</body>
+</html>
